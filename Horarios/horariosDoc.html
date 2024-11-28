@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Horarios - CPU Alumnos</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="/css/horarioDoc.css">
+
+</head>
+<body onload="checkAuthentication()">
+    <!-- Encabezado superior -->
+    <header class="header d-flex justify-content-between align-items-center p-2 border-bottom">
+        <h1 class="h4 ml-3">CENTRO PRE UNIVERSITARIO</h1>
+        <div class="user-info d-flex align-items-center mr-3">
+            <i class="bi bi-bell mr-3"></i>
+            <div class="d-flex flex-column align-items-end">
+                <span class="user-name">RAMOS FLORES PAOLA ABIGAIL</span>
+                <span class="user-role text-info">Docente</span>
+            </div>
+            <div class="dropdown">
+                <a href="#" data-toggle="dropdown" style="margin-left: 8px;">
+                    <img src="/img/perfil-icon.png" alt="Perfil" style="width: 45px; height: 45px; border-radius: 50%; border: 1px solid #333;">
+                </a>
+                <div class="dropdown-menu dropdown-menu-right">
+                    <a class="dropdown-item" href="/perfilDoc.html">Ver Perfil</a>
+                    <a class="dropdown-item" href="/index.html" onclick="logout()">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Barra Lateral -->
+    <nav class="sidebar">
+        <ul class="nav flex-column">
+            <li class="nav-item">
+                <a class="nav-link" href="/menuDoc.html">
+                    <i class="bi bi-house"></i> Inicio
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Horarios/horariosDoc.html">
+                    <i class="bi bi-calendar3"></i> Horario
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Materiales/materialDoc.html">
+                    <i class="bi bi-book-half"></i> Cursos
+                </a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" href="/Asistencia/asistenciaDoc.html">
+                    <i class="bi bi-person-lines-fill"></i> Asistencia
+                </a>
+            </li>
+        </ul>
+    </nav>
+    <button class="btn-toggle-sidebar" onclick="toggleSidebar()">
+        <i class="bi bi-arrow-left-right"></i>
+    </button>
+
+    <!-- Contenido principal -->
+<!-- Contenido principal -->
+<main class="main-content">
+    <div class="schedule-container">
+        <h2 class="schedule-title">HORARIO</h2>
+        <div class="schedule-header">
+            <label for="turno-select"><strong>Turno:</strong></label>
+            <select id="turno-select" class="form-control w-25 d-inline-block ml-2">
+                <option value="mañana">Mañana</option>
+                <option value="tarde">Tarde</option>
+            </select>
+        </div>
+        <div id="horario-mañana" class="schedule-table-container">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>7:00 AM - 7:50 AM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td>Química<br><small>Aula A-04</small></td>
+                    </tr>
+                    <tr>
+                        <td>7:50 AM - 8:40 AM</td>
+                        <td>Geometría<br><small>Aula A-02</small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                    </tr>
+                    <tr>
+                        <td>8:40 AM - 9:30 AM</td>
+                        <td>Geometría<br><small>Aula A-02</small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                    </tr>
+                    <tr>
+                        <td>9:30 AM - 10:20 AM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                    </tr>
+                    <tr class="recess-row">
+                        <td>10:20 AM - 10:50 AM</td>
+                        <td colspan="6">RECESO</td>
+                    </tr>
+                    <tr>
+                        <td>10:50 AM - 11:40 AM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td>Física<br><small>Aula A-04</small></td>
+                    </tr>
+                    <tr>
+                        <td>11:40 AM - 12:30 PM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td>Raz. Matemático<br><small>Aula A-01</small></td>
+                        <td>Física<br><small>Aula A-04</small></td>
+                    </tr>
+                    <tr>
+                        <td>12:30 PM - 1:20 PM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td>Raz. Matemático<br><small>Aula A-01</small></td>
+                        <td>Física<br><small>Aula A-04</small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div id="horario-tarde" class="schedule-table-container" style="display: none;">
+            <table class="schedule-table">
+                <thead>
+                    <tr>
+                        <th>Hora</th>
+                        <th>Lunes</th>
+                        <th>Martes</th>
+                        <th>Miércoles</th>
+                        <th>Jueves</th>
+                        <th>Viernes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>3:00 PM - 3:50 PM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                    </tr>
+                    <tr>
+                        <td>3:50 PM - 4:40 PM</td>
+                        <td><br><small></small></td>
+                        <td>Álgebra<br><small>Aula A-03</small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                    </tr>
+                    <tr>
+                        <td>4:40 PM - 5:30 PM</td>
+                        <td><br><small></small></td>
+                        <td>Álgebra<br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td>Trigonometría<br><small>Aula A-04</small></td>
+                    </tr>
+                    <tr>
+                        <td>5:30 PM - 6:20 PM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                    </tr>
+                    <tr class="recess-row">
+                        <td>6:20 PM - 6:50 PM</td>
+                        <td colspan="6">RECESO</td>
+                    </tr>
+                    <tr>
+                        <td>6:50 PM - 7:40 PM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                    </tr>
+                    <tr>
+                        <td>7:40 PM - 8:30 PM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                    </tr>
+                    <tr>
+                        <td>8:30 PM - 9:20 PM</td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                        <td><br><small></small></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</main>
+
+    <!-- Footer -->
+    <footer class="footer text-center">
+        © 2023 Centro Pre Universitario. Todos los derechos reservados.
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="/js/scriptDoc.js"></script>
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.querySelector('.sidebar');
+            const mainContent = document.querySelector('.main-content');
+            const toggleButton = document.querySelector('.btn-toggle-sidebar');
+
+            sidebar.classList.toggle('hidden');
+            if (sidebar.classList.contains('hidden')) {
+                toggleButton.style.left = '10px';
+            } else {
+                toggleButton.style.left = '210px';
+            }
+        }
+
+        // Detectar el cambio de tamaño de la ventana
+        window.addEventListener('resize', () => {
+            const sidebar = document.querySelector('.sidebar');
+            if (window.innerWidth <= 768) {
+                sidebar.classList.add('hidden');
+            } else {
+                sidebar.classList.remove('hidden');
+            }
+        });
+
+        document.getElementById("turno-select").addEventListener("change", function () {
+        const turno = this.value;
+        const horarioMañana = document.getElementById("horario-mañana");
+        const horarioTarde = document.getElementById("horario-tarde");
+
+        if (turno === "mañana") {
+            horarioMañana.style.display = "block";
+            horarioTarde.style.display = "none";
+        } else {
+            horarioMañana.style.display = "none";
+            horarioTarde.style.display = "block";
+        }
+    });
+    </script>
+
+</body>
+</html>
